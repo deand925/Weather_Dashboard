@@ -6,11 +6,11 @@ Created a weather dashboard that when the user searches a city the current weath
 
 ## Website URL 
 
-* [deployed link](https://deand925.github.io/Weather_Dashboard/)
+* [deployed link](https://deand925.github.io/Weather_Dashboard_Server-Side_APIs/)
 
 ## Github
 
-https://github.com/deand925/Weather_Dashboard.git
+https://github.com/deand925/Weather_Dashboard_Server-Side_APIs.git
 
 
 ## Images
