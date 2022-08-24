@@ -15,3 +15,15 @@ function search() {
             getWeather(data[0].lat, data[0].lon, data[0].name)
         });
 }
+
+function getWeather(lat, lon, city) {
+    const currentApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+    fetch(currentApi)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            const formatDate = new Date(data.current.dt * 1000).toDateString()
+
+            let currentIcon = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
+            let futureIcon = `http://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`;
+
