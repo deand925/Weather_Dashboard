@@ -27,3 +27,34 @@ function getWeather(lat, lon, city) {
             let currentIcon = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
             let futureIcon = `http://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`;
 
+
+            todayEl.innerHTML =
+                `<h3>${city} (${formatDate})</h3>
+            <div class='row'>
+                <div class="current-weather-element">
+                    <p>${data.current.temp}&#8457</p>
+                    <p>${data.current.wind_speed} MPH</p>
+                    <p>${data.current.humidity} %</p>
+                    <p class="p-3 mb-2 bg-success text-white">${data.current.uvi} UVI</p>
+                </div>
+                <div>
+                    <img src= "${currentIcon}">
+                </div>
+            </div>`
+
+            futureEl.innerHTML = '';
+
+            for (let i = 0; i <= 4; i++) {
+                let futureFormatDate = new Date(data.daily[i].dt * 1000).toLocaleDateString();
+                futureEl.innerHTML += `
+            <div class="future-weather">
+                <h4>${futureFormatDate}</h4>
+                <img src= "${futureIcon}">
+                <p>${data.daily[i].temp.day}&#8457</p>
+                <p>${data.daily[i].wind_speed} MPH</p>
+                <p>${data.daily[i].humidity} %</p>
+            </div>`
+            }
+            storeWeather(city);
+        });
+}
