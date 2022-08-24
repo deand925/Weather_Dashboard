@@ -58,3 +58,47 @@ function getWeather(lat, lon, city) {
             storeWeather(city);
         });
 }
+
+function storeWeather(city) {
+    if (searchedArr.length === 5) {
+        searchedArr.shift();
+        pastEl.removeChild(pastEl.firstElementChild);
+    };
+    searchedArr.push(city);
+    localStorage.setItem('searched', JSON.stringify(searchedArr));
+        let pastBtnEl = document.createElement('button');
+        pastBtnEl.textContent = city;
+        pastEl.append(pastBtnEl);
+}
+
+function updateSearchedButtons() {
+    if (localStorage.getItem('searched')) {
+        localStorageData = JSON.parse(localStorage.getItem('searched'));
+        searchedArr = localStorageData;
+    }
+    createButtons();
+}
+updateSearchedButtons();
+
+function pastSearched() {
+    futureEl.textContent = '';
+    searchInput.value = this.classList.value;
+    search();
+}
+
+function createButtons() {
+    pastEl.textContent = '';
+    if (searchedArr.length === 5) {
+        searchedArr.shift();
+        console.log(searchedArr)
+    };
+    for (let i = 0; i < searchedArr.length; i++) {
+        if (i <= 5) {
+            let pastBtnEl = document.createElement('button');
+            pastBtnEl.classList.add(searchedArr[i]);
+            pastBtnEl.textContent = searchedArr[i];
+            pastEl.append(pastBtnEl);
+            pastBtnEl.addEventListener('click', pastSearched)
+        }
+    }
+}
