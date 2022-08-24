@@ -1,0 +1,54 @@
+body {
+    height: 100vh;
+}
+
+header {
+    height: 10%;
+}
+
+h1, #weather {
+    height: 90%;
+}
+
+main {
+    height: 90%;
+}
+
+.city-search {
+    background-color: lightblue;
+    margin-top: 13px;
+    height: 650px;
+}
+
+.current-future {
+    height: 320px;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+button {
+    margin: 5px;
+}
+
+.border-padding {
+    padding: 20px;
+    margin: 10px;
+}
+
+.current-weather-element{
+    font: 20px;
+}
+
+
+#future-weather {
+    margin: 10px;
+}
+
+.future-weather {
+    padding: 0 11px;
+}
+
+#past-searches {
+    display: flex;
+    flex-direction: column;
+}
