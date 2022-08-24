@@ -8,7 +8,7 @@ const apiKey = 'c4efde1256af8c7718fe0b08e34be0c1';
 
 searchBtn.addEventListener('click', search)
 function search() {
-    const cityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchInput.value}&limit=5&appid=${apiKey}`;
+    const cityUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput.value}&limit=5&appid=${apiKey}`;
     fetch(cityUrl)
         .then(res => res.json())
         .then(data => {
